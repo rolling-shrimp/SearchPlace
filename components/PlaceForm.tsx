@@ -93,15 +93,15 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
         onSubmit={handleSubmit}
         className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 space-y-4 max-h-[90vh] overflow-y-auto"
       >
-        <h2 className="text-xl font-bold text-stone-800">
+        <h2 className="text-xl font-bold text-gray-900">
           {initial ? "編輯地點" : "新增地點"}
         </h2>
 
         {/* 自動搜尋區 */}
         <div className="relative">
-          <label className="block text-sm font-medium text-stone-600 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             搜尋地點
-            <span className="ml-1 text-xs text-stone-400">（輸入後自動搜尋）</span>
+            <span className="ml-1 text-xs text-gray-500">（輸入後自動搜尋）</span>
           </label>
           <div className="flex gap-2">
             <input
@@ -109,13 +109,13 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
               value={searchQuery}
               onChange={(e) => handleSearchInput(e.target.value)}
               placeholder="輸入地點名稱自動搜尋地址..."
-              className="flex-1 border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm"
             />
             <button
               type="button"
               onClick={() => doSearch(searchQuery)}
               disabled={searching || searchQuery.trim().length < 1}
-              className="px-3 py-2 bg-blue-500 hover:bg-blue-600 disabled:bg-stone-200 text-white rounded-lg text-sm transition-colors"
+              className="px-3 py-2 bg-gray-800 hover:bg-gray-900 disabled:bg-gray-200 text-white rounded-lg text-sm transition-colors"
             >
               {searching ? "⏳" : "🔍"}
             </button>
@@ -123,16 +123,16 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
 
           {/* 搜尋結果下拉 */}
           {searchResults.length > 0 && (
-            <div className="absolute top-full mt-1 left-0 right-0 bg-white border border-stone-200 rounded-xl shadow-lg z-10 overflow-hidden">
+            <div className="absolute top-full mt-1 left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-10 overflow-hidden">
               {searchResults.map((r, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => handleSelectResult(r)}
-                  className="w-full text-left px-4 py-3 hover:bg-blue-50 transition-colors border-b border-stone-100 last:border-0"
+                  className="w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0"
                 >
-                  <p className="text-sm font-medium text-stone-800">{r.name}</p>
-                  <p className="text-xs text-stone-500 truncate">{r.address}</p>
+                  <p className="text-sm font-medium text-gray-900">{r.name}</p>
+                  <p className="text-xs text-gray-500 truncate">{r.address}</p>
                 </button>
               ))}
             </div>
@@ -143,12 +143,12 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
           )}
         </div>
 
-        <div className="border-t border-stone-100 pt-3 space-y-3">
-          <p className="text-xs text-stone-400">或手動填寫：</p>
+        <div className="border-t border-gray-200 pt-3 space-y-3">
+          <p className="text-xs text-gray-500">或手動填寫：</p>
 
           {/* 地點名稱 */}
           <div>
-            <label className="block text-sm font-medium text-stone-600 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               地點名稱 *
             </label>
             <input
@@ -156,31 +156,31 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="例：大安森林公園"
-              className="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
               required
             />
           </div>
 
           {/* 地址 */}
           <div>
-            <label className="block text-sm font-medium text-stone-600 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               地址
-              {address && <span className="ml-1 text-xs text-green-500">✓ 已自動填入</span>}
+              {address && <span className="ml-1 text-xs text-gray-500">✓ 已自動填入</span>}
             </label>
             <input
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               placeholder="例：台北市大安區新生南路二段"
-              className="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
           {/* 地圖連結 */}
           <div>
-            <label className="block text-sm font-medium text-stone-600 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               地圖連結
-              {mapUrl && <span className="ml-1 text-xs text-green-500">✓ 已自動填入</span>}
+              {mapUrl && <span className="ml-1 text-xs text-gray-500">✓ 已自動填入</span>}
             </label>
             <div className="flex gap-2">
               <input
@@ -188,14 +188,14 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
                 value={mapUrl}
                 onChange={(e) => setMapUrl(e.target.value)}
                 placeholder="https://maps.google.com/..."
-                className="flex-1 border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+                className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm"
               />
               {mapUrl && (
                 <a
                   href={mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-lg text-sm transition-colors"
+                  className="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-sm transition-colors"
                   title="預覽地圖"
                 >
                   🗺️
@@ -207,11 +207,11 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
 
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm font-medium text-stone-600 mb-1">分類</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">分類</label>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value as Category)}
-              className="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
             >
               {CATEGORIES.map((c) => (
                 <option key={c} value={c}>{c}</option>
@@ -220,7 +220,7 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-stone-600 mb-1">喜愛程度</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">喜愛程度</label>
             <div className="flex gap-1 mt-1">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button
@@ -228,7 +228,7 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
                   type="button"
                   onClick={() => setRating(n)}
                   className={`text-xl transition-transform hover:scale-110 ${
-                    n <= rating ? "text-yellow-400" : "text-stone-300"
+                    n <= rating ? "text-yellow-400" : "text-gray-300"
                   }`}
                 >
                   ★
@@ -244,9 +244,9 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
             id="outdoor"
             checked={isOutdoor}
             onChange={(e) => setIsOutdoor(e.target.checked)}
-            className="w-4 h-4 accent-green-500"
+            className="w-4 h-4 accent-gray-800"
           />
-          <label htmlFor="outdoor" className="text-sm text-stone-600">
+          <label htmlFor="outdoor" className="text-sm text-gray-700">
             戶外地點（雨天天氣篩選會排除）
           </label>
         </div>
@@ -254,14 +254,14 @@ export default function PlaceForm({ onSave, onCancel, initial }: Props) {
         <div className="flex gap-3 pt-2">
           <button
             type="submit"
-            className="flex-1 bg-green-500 hover:bg-green-600 text-white rounded-xl py-2.5 font-semibold transition-colors"
+            className="flex-1 bg-gray-800 hover:bg-gray-900 text-white rounded-xl py-2.5 font-semibold transition-colors"
           >
             儲存
           </button>
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-xl py-2.5 font-semibold transition-colors"
+            className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-xl py-2.5 font-semibold transition-colors"
           >
             取消
           </button>

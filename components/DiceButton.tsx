@@ -49,8 +49,8 @@ export default function DiceButton({ places, onPicked }: Props) {
     <div className="relative">
       {/* 篩選面板 */}
       {showFilter && (
-        <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-xl border border-stone-100 p-4 w-72 z-10">
-          <p className="text-sm font-semibold text-stone-700 mb-2">分類篩選</p>
+        <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-xl border border-gray-200 p-4 w-72 z-10">
+          <p className="text-sm font-semibold text-gray-700 mb-2">分類篩選</p>
           <div className="flex flex-wrap gap-2 mb-3">
             {CATEGORIES.map((cat) => (
               <button
@@ -58,26 +58,26 @@ export default function DiceButton({ places, onPicked }: Props) {
                 onClick={() => toggleCat(cat)}
                 className={`text-sm px-3 py-1 rounded-full border transition-colors ${
                   selectedCats.includes(cat)
-                    ? "bg-green-500 text-white border-green-500"
-                    : "border-stone-200 text-stone-600 hover:border-green-400"
+                    ? "bg-gray-800 text-white border-gray-800"
+                    : "border-gray-200 text-gray-600 hover:border-gray-500"
                 }`}
               >
                 {cat}
               </button>
             ))}
           </div>
-          <label className="flex items-center gap-2 text-sm text-stone-600 mb-3">
+          <label className="flex items-center gap-2 text-sm text-gray-600 mb-3">
             <input
               type="checkbox"
               checked={outdoorOnly}
               onChange={(e) => setOutdoorOnly(e.target.checked)}
-              className="accent-green-500"
+              className="accent-gray-800"
             />
             只抽戶外地點
           </label>
           <button
             onClick={roll}
-            className="w-full bg-green-500 hover:bg-green-600 text-white rounded-xl py-2 font-semibold transition-colors"
+            className="w-full bg-gray-800 hover:bg-gray-900 text-white rounded-xl py-2 font-semibold transition-colors"
           >
             開始抽籤！
           </button>
@@ -87,7 +87,7 @@ export default function DiceButton({ places, onPicked }: Props) {
       <div className="flex gap-3 items-center">
         <button
           onClick={() => setShowFilter((v) => !v)}
-          className="text-stone-400 hover:text-green-500 transition-colors text-sm"
+          className="text-gray-400 hover:text-gray-700 transition-colors text-sm"
           title="篩選條件"
         >
           ⚙️ 篩選
@@ -95,7 +95,7 @@ export default function DiceButton({ places, onPicked }: Props) {
         <button
           onClick={roll}
           disabled={spinning}
-          className={`flex items-center gap-2 bg-green-500 hover:bg-green-600 active:scale-95 text-white rounded-2xl px-6 py-3 text-lg font-bold shadow-lg shadow-green-200 transition-all ${
+          className={`flex items-center gap-2 bg-white hover:bg-gray-50 active:scale-95 text-gray-700 rounded-2xl px-6 py-3 text-lg font-bold shadow-lg shadow-gray-200 transition-all ${
             spinning ? "opacity-70" : ""
           }`}
         >

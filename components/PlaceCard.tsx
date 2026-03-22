@@ -32,7 +32,7 @@ export default function PlaceCard({ place, onEdit, onDelete, onToggleVisited }: 
   return (
     <div
       className={`bg-white rounded-2xl shadow-sm border transition-all hover:shadow-md ${
-        place.visitedToday ? "opacity-60 border-stone-200" : "border-transparent"
+        place.visitedToday ? "opacity-60 border-gray-300" : "border-transparent"
       }`}
     >
       <div className="p-4">
@@ -40,7 +40,7 @@ export default function PlaceCard({ place, onEdit, onDelete, onToggleVisited }: 
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-lg">{CATEGORY_EMOJI[place.category]}</span>
-              <h3 className="font-semibold text-stone-800 truncate">{place.name}</h3>
+              <h3 className="font-semibold text-gray-900 truncate">{place.name}</h3>
               <span
                 className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                   CATEGORY_COLORS[place.category]
@@ -49,7 +49,7 @@ export default function PlaceCard({ place, onEdit, onDelete, onToggleVisited }: 
                 {place.category}
               </span>
               {place.visitedToday && (
-                <span className="text-xs px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
                   今日已去
                 </span>
               )}
@@ -60,7 +60,7 @@ export default function PlaceCard({ place, onEdit, onDelete, onToggleVisited }: 
             <div className="flex items-center gap-3 mt-2">
               <span className="text-yellow-400 text-sm">
                 {"★".repeat(place.rating)}
-                <span className="text-stone-300">{"★".repeat(5 - place.rating)}</span>
+                <span className="text-gray-300">{"★".repeat(5 - place.rating)}</span>
               </span>
               {place.isOutdoor && (
                 <span className="text-xs text-sky-500">☀️ 戶外</span>
@@ -74,7 +74,7 @@ export default function PlaceCard({ place, onEdit, onDelete, onToggleVisited }: 
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center text-sm bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg py-1.5 transition-colors"
+            className="flex-1 text-center text-sm bg-gray-50 hover:bg-gray-100 text-gray-600 rounded-lg py-1.5 transition-colors"
           >
             🗺️ 地圖
           </a>
@@ -82,15 +82,15 @@ export default function PlaceCard({ place, onEdit, onDelete, onToggleVisited }: 
             onClick={onToggleVisited}
             className={`flex-1 text-sm rounded-lg py-1.5 transition-colors ${
               place.visitedToday
-                ? "bg-stone-100 hover:bg-stone-200 text-stone-500"
-                : "bg-green-50 hover:bg-green-100 text-green-600"
+                ? "bg-gray-100 hover:bg-gray-200 text-gray-500"
+                : "bg-gray-50 hover:bg-gray-100 text-gray-700"
             }`}
           >
             {place.visitedToday ? "✓ 已去" : "✓ 今日去過"}
           </button>
           <button
             onClick={onEdit}
-            className="px-3 text-sm bg-stone-50 hover:bg-stone-100 text-stone-500 rounded-lg py-1.5 transition-colors"
+            className="px-3 text-sm bg-gray-50 hover:bg-gray-100 text-gray-500 rounded-lg py-1.5 transition-colors"
           >
             ✏️
           </button>
